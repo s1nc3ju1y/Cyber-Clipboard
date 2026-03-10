@@ -1,0 +1,24 @@
+{
+  "name": "clipboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop clipboard",
+    "restart": "pm2 restart clipboard",
+    "logs": "pm2 logs clipboard",
+    "status": "pm2 status",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "pm2": "^6.0.14",
+    "qrcode": "^1.5.4"
+  }
+}

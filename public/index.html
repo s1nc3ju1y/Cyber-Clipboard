@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER-CLIP // TERMINAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CYBER-CLIP</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('create')" id="tab-create">UPLOAD</button>
+            <button class="tab-btn" onclick="showTab('retrieve')" id="tab-retrieve">DOWNLOAD</button>
+        </div>
+
+        <!-- Create Section -->
+        <div id="create-tab" class="tab-content active">
+            <div class="input-area">
+                <textarea id="create-input" placeholder="> TYPE OR PASTE TEXT/IMAGE HERE..."></textarea>
+                <div class="paste-hint">[CTRL+V SUPPORTED]</div>
+            </div>
+            
+            <div id="image-preview-container" class="hidden">
+                <p class="section-hint">IMAGE LOADED IN BUFFER</p>
+                <img id="image-preview" src="" alt="Preview">
+                <button onclick="clearImage()" class="clear-img-btn">[X] DISCARD IMAGE</button>
+            </div>
+
+            <button onclick="createClipboard()" class="primary-btn">GENERATE ACCESS CODE</button>
+            
+            <div id="create-result" class="hidden result-box">
+                <p>ACCESS CODE GENERATED:</p>
+                <div id="result-code" class="code-display"></div>
+                <p class="visits-info">LIFESPAN: <strong>3 VISITS</strong> OR <strong>8 HOURS</strong>.</p>
+                
+                <p class="scan-hint">OPTICAL SCAN LINK:</p>
+                <img id="qrcode" src="" alt="QR Code">
+                
+                <button onclick="copyLink()" class="secondary-btn">COPY DIRECT LINK</button>
+            </div>
+        </div>
+
+        <!-- Retrieve Section -->
+        <div id="retrieve-tab" class="tab-content">
+            <p class="section-hint">INPUT 4-DIGIT DECRYPTION KEY:</p>
+            <div class="code-input-container">
+                <input type="text" id="retrieve-input" placeholder="****" maxlength="4" autocomplete="off">
+            </div>
+            <button onclick="retrieveClipboard()" class="primary-btn">DECRYPT DATA</button>
+            
+            <div id="retrieve-result" class="hidden result-box-retrieve">
+                <div class="header-row">
+                    <h3>PAYLOAD EXTRACTED:</h3>
+                    <span id="visits-left" class="badge"></span>
+                </div>
+                
+                <div id="result-text-container">
+                    <textarea id="result-content" readonly></textarea>
+                </div>
+                
+                <div id="result-image-container" class="hidden">
+                    <img id="result-image" src="" alt="Extracted Image" style="max-width: 100%; border: 2px solid var(--neon-blue); margin-bottom: 1rem;">
+                </div>
+
+                <div class="action-buttons" id="text-actions">
+                    <button onclick="copyContent()" class="secondary-btn">COPY TEXT</button>
+                    <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
+                </div>
+                <div class="action-buttons hidden" id="image-actions">
+                    <a id="download-link" href="#" download="cyber-clip-image" class="secondary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">SAVE IMAGE</a>
+                    <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
