@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
     --neon-pink: #FF003C;
@@ -17,7 +17,9 @@
 }
 
 body {
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    line-height: 1.6;
     background-color: var(--bg-dark);
     color: var(--text-main);
     display: flex;
@@ -83,7 +85,7 @@ h1 {
     font-size: 1.2rem;
     color: var(--text-main);
     cursor: pointer;
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
     text-transform: uppercase;
     transition: all 0.2s;
 }
@@ -124,7 +126,7 @@ textarea, input[type="text"] {
     color: var(--neon-yellow);
     font-size: 1.2rem;
     outline: none;
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
 }
 
 textarea {
@@ -158,7 +160,7 @@ textarea:focus, input[type="text"]:focus {
     border: 1px solid var(--neon-pink);
     color: var(--neon-pink);
     padding: 0.5rem;
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
     cursor: pointer;
     font-size: 1rem;
 }
@@ -176,7 +178,7 @@ button.primary-btn, button.secondary-btn {
     color: var(--neon-blue);
     font-size: 1.2rem;
     cursor: pointer;
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
     text-transform: uppercase;
     transition: all 0.2s;
     margin-bottom: 0.5rem;
@@ -273,7 +275,7 @@ button.secondary-btn:hover {
     width: auto;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', monospace;
     cursor: pointer;
 }
 
