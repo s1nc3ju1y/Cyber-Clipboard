@@ -138,6 +138,11 @@ textarea:focus, input[type="text"]:focus {
     box-shadow: 0 0 8px var(--neon-pink);
 }
 
+textarea::placeholder, input[type="text"]::placeholder {
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
 /* Image Preview Styles */
 #image-preview-container {
     border: 2px dashed var(--neon-yellow);
