@@ -18,15 +18,20 @@
 
         <!-- Create Section -->
         <div id="create-tab" class="tab-content active">
-            <div class="input-area">
-                <textarea id="create-input" placeholder="> TYPE OR PASTE TEXT/IMAGE HERE..."></textarea>
-                <div class="paste-hint">[CTRL+V SUPPORTED]</div>
+            <div class="input-area dropzone" id="dropzone">
+                <textarea id="create-input" placeholder="> TYPE TEXT, PASTE IMAGE, OR DROP FILE HERE..."></textarea>
+                <div class="paste-hint" onclick="document.getElementById('file-input').click()">[ CLICK OR DROP FILE ]</div>
+                <input type="file" id="file-input" class="hidden">
             </div>
             
-            <div id="image-preview-container" class="hidden">
-                <p class="section-hint">IMAGE LOADED IN BUFFER</p>
-                <img id="image-preview" src="" alt="Preview">
-                <button onclick="clearImage()" class="clear-img-btn">[X] DISCARD IMAGE</button>
+            <div id="file-preview-container" class="hidden">
+                <p class="section-hint" id="preview-title">PAYLOAD LOADED</p>
+                <img id="image-preview" src="" alt="Preview" class="hidden">
+                <div id="file-metadata" class="file-metadata hidden">
+                    <div id="file-name" class="file-name"></div>
+                    <div id="file-size" class="file-size"></div>
+                </div>
+                <button onclick="clearFile()" class="clear-img-btn">[X] DISCARD PAYLOAD</button>
             </div>
 
             <button onclick="createClipboard()" class="primary-btn">COPY</button>
@@ -57,7 +62,7 @@
                     <span id="visits-left" class="badge"></span>
                 </div>
                 
-                <div id="result-text-container">
+                <div id="result-text-container" class="hidden">
                     <textarea id="result-content" readonly></textarea>
                 </div>
                 
@@ -65,12 +70,21 @@
                     <img id="result-image" src="" alt="Extracted Image" style="max-width: 100%; border: 2px solid var(--neon-blue); margin-bottom: 1rem;">
                 </div>
 
-                <div class="action-buttons" id="text-actions">
+                <div id="result-file-container" class="file-metadata hidden" style="margin-bottom: 1rem;">
+                    <div id="download-file-name" class="file-name"></div>
+                    <div id="download-file-size" class="file-size"></div>
+                </div>
+
+                <div class="action-buttons hidden" id="text-actions">
                     <button onclick="copyContent()" class="secondary-btn">COPY TEXT</button>
                     <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
                 </div>
                 <div class="action-buttons hidden" id="image-actions">
-                    <a id="download-link" href="#" download="cyber-clip-image" class="secondary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">SAVE IMAGE</a>
+                    <a id="download-image-link" href="#" download="cyber-clip-image" class="secondary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">SAVE IMAGE</a>
+                    <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
+                </div>
+                <div class="action-buttons hidden" id="file-actions">
+                    <a id="download-file-link" href="#" class="primary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">INITIATE DOWNLOAD</a>
                     <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
                 </div>
             </div>

@@ -4,6 +4,7 @@
     --neon-pink: #FF003C;
     --neon-blue: #00F0FF;
     --neon-yellow: #FCE205;
+    --neon-green: #00FF41;
     --bg-dark: #0B0B0E;
     --bg-panel: #121218;
     --text-main: #E0E0E0;
@@ -116,6 +117,13 @@ h1 {
 .input-area {
     position: relative;
     margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.dropzone.dragover textarea {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green);
+    background-color: rgba(0, 255, 65, 0.1);
 }
 
 textarea, input[type="text"] {
@@ -128,6 +136,7 @@ textarea, input[type="text"] {
     letter-spacing: -0.5px;
     outline: none;
     font-family: 'Press Start 2P', monospace;
+    transition: all 0.2s ease;
 }
 
 textarea {
@@ -144,13 +153,18 @@ textarea::placeholder, input[type="text"]::placeholder {
     opacity: 0.7;
 }
 
-/* Image Preview Styles */
-#image-preview-container {
-    border: 2px dashed var(--neon-yellow);
-    padding: 1rem;
+/* File Preview Styles */
+#file-preview-container {
+    border: 2px dashed var(--neon-green);
+    padding: 1.5rem;
     text-align: center;
     margin-bottom: 1rem;
-    background: rgba(252, 226, 5, 0.05);
+    background: rgba(0, 255, 65, 0.05);
+}
+
+#preview-title {
+    color: var(--neon-green);
+    font-size: 1rem;
 }
 
 #image-preview {
@@ -161,6 +175,23 @@ textarea::placeholder, input[type="text"]::placeholder {
     margin: 0 auto 1rem;
 }
 
+.file-metadata {
+    color: var(--neon-yellow);
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.8;
+}
+
+.file-name {
+    word-break: break-all;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+}
+
+.file-size {
+    color: var(--neon-pink);
+}
+
 .clear-img-btn {
     background-color: transparent;
     border: 1px solid var(--neon-pink);
@@ -169,6 +200,7 @@ textarea::placeholder, input[type="text"]::placeholder {
     font-family: 'Press Start 2P', monospace;
     cursor: pointer;
     font-size: 0.8rem;
+    width: 100%;
 }
 
 .clear-img-btn:hover {
@@ -345,6 +377,13 @@ button.secondary-btn:hover {
     right: 5px;
     font-size: 0.7rem;
     color: var(--neon-pink);
-    pointer-events: none;
+    cursor: pointer;
     opacity: 0.7;
+    transition: opacity 0.2s;
+    background-color: #000;
+    padding: 2px 5px;
+}
+.paste-hint:hover {
+    opacity: 1;
+    color: var(--neon-green);
 }
