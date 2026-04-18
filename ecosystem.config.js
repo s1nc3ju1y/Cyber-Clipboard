@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'clipboard',
+    name: 'clip',
     script: 'server.js',
     env: {
       PORT: 3001

@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBER-CLIP // TERMINAL</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
     <div class="container">
-        <h1>CYBER-CLIP</h1>
-        
+        <div class="status-bar">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>SYS://CYBER-CLIP</span>
+            <span class="spacer"></span>
+            <span class="status-id">NODE_77</span>
+            <span>v2.0.77</span>
+        </div>
+
+        <h1 data-text="CYBER-CLIP">CYBER-CLIP</h1>
+        <p class="subtitle">// NETRUNNER DATA RELAY //</p>
+
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('create')" id="tab-create">COPY</button>
-            <button class="tab-btn" onclick="showTab('retrieve')" id="tab-retrieve">PASTE</button>
+            <button class="tab-btn active" onclick="showTab('create')" id="tab-create">PASTE</button>
+            <button class="tab-btn" onclick="showTab('retrieve')" id="tab-retrieve">COPY</button>
         </div>
 
         <!-- Create Section -->
@@ -34,7 +43,7 @@
                 <button onclick="clearFile()" class="clear-img-btn">[X] DISCARD PAYLOAD</button>
             </div>
 
-            <button onclick="createClipboard()" class="primary-btn">COPY</button>
+            <button onclick="createClipboard()" class="primary-btn">GENERATE CODE</button>
             
             <div id="create-result" class="hidden result-box">
                 <p>ACCESS CODE GENERATED:</p>
@@ -67,7 +76,7 @@
                 </div>
                 
                 <div id="result-image-container" class="hidden">
-                    <img id="result-image" src="" alt="Extracted Image" style="max-width: 100%; border: 2px solid var(--neon-blue); margin-bottom: 1rem;">
+                    <img id="result-image" src="" alt="Extracted Image">
                 </div>
 
                 <div id="result-file-container" class="file-metadata hidden" style="margin-bottom: 1rem;">
@@ -80,16 +89,20 @@
                     <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
                 </div>
                 <div class="action-buttons hidden" id="image-actions">
-                    <a id="download-image-link" href="#" download="cyber-clip-image" class="secondary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">SAVE IMAGE</a>
+                    <a id="download-image-link" href="#" download="cyber-clip-image" class="secondary-btn" style="text-decoration:none;">SAVE IMAGE</a>
                     <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
                 </div>
                 <div class="action-buttons hidden" id="file-actions">
-                    <a id="download-file-link" href="#" class="primary-btn" style="text-decoration:none; text-align:center; display:inline-block; line-height:1.5;">INITIATE DOWNLOAD</a>
+                    <a id="download-file-link" href="#" class="primary-btn" style="text-decoration:none;">DOWNLOAD FILE</a>
                     <button onclick="clearRetrieve()" class="text-btn">CLEAR</button>
                 </div>
             </div>
         </div>
-        
+
+        <div class="footer-bar">
+            <span>// NIGHT_CITY.NET</span>
+            <span class="encrypted">● ENCRYPTED_CHANNEL</span>
+        </div>
     </div>
 
     <!-- Toast Notification -->
